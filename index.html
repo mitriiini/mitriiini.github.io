@@ -1,17 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mini ChatGPT</title>
-  <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathieu Dubris ~ J'AURAI DU</title>
+    <link rel="icon" href="images/ico/favicon.ico" type="image/ico">
+    <meta name="google-site-verification" content="SevKXKXdsUpP6EtRF_YXBnnghqoo-f4OaWod8ehAojw">
+    <link rel="stylesheet" href="css/cookies.css">
+    <link rel="stylesheet" href="css/livre.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/spal.css">
 </head>
 <body>
-  <div id="chat">
-    <div id="messages"></div>
-    <input type="text" id="userInput" placeholder="Pose ta question...">
-    <button onclick="sendMessage()">Envoyer</button>
-  </div>
+    <div class="sidebar" style="left: -350px;">
+        <ul>
+            <div class="close-btn"></div>
+            <li><a href="artist.html" draggable="false">Accueil</a></li>
+            <li><a href="genre.html" draggable="false">Nos créations</a></li>
+            <li><a href="library.html" draggable="false">Livres célèbres</a></li>
+            <li><a href="contact.html" draggable="false">Contact</a></li>
+            <li><a href="setting.hml" draggable="false">Paramètres</a></li>
+        </ul>
+    </div>
+    <header>
+        <div class="left-section">
+            <img class="logo" src="images/png/mt/logotype.png" alt="Logo Mitriiini Studio" draggable="false">
+        </div>
+        <div class="right-section">
+            <div id="userProfileContainer" class="user-profile-button" title="Login impossible pour le moment">
+                <img id="userProfilePic" src="images/jpg/profil.jpg" alt="Default Profile" draggable="false">
+            </div>
+            <div class="hamburger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="wrapper">
+            <div class="content">
+                <div class="quote-container">
+                    <div class="caption">Mathieu Dubris</div>
+                    <div class="quote">J'aurai du</div>
+                    <div class="caption">Et si chaque mot était une chance de réécrire le passé ? Ce livre est une confession sur tout ce que l'on aurait dû faire, dire, ou vivre.</div>
+                    <div class="author">Music par Emile Mosseri</div>
 
-  <script src="script.js"></script>
+                    <div class="button-wrap">
+                        <a href="https://mitriiini.web.app/Projet" draggable="false">
+                            <button>
+                                <span id="target" class="get-started-button">Participer à sa création</span>
+                            </button>
+                        </a>
+                        <div class="button-shadow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="copyright">© 2025 Mitriiini. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="terms.html" draggable="false">Conditions d'utilisation</a> |
+            <a href="privacy.html" draggable="false">Politique de confidentialité</a>
+        </div>
+        <div class="toggle-theme">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+    <script src="js/cookies.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/default.js"></script>
+    <script src="js/livre.js"></script>
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (
+                e.keyCode === 123 ||
+                (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+                (e.ctrlKey && e.keyCode === 85) ||
+                (e.ctrlKey && e.keyCode === 83)
+            ) {
+                e.preventDefault();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img, a').forEach(el => {
+                el.setAttribute('draggable', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
