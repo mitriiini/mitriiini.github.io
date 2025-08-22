@@ -1,0 +1,327 @@
+/* ============ livre.css ============ */
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+:root {
+    --default-font: "Varela Round", sans-serif;
+    --primary-font: "Boldonse", sans-serif;
+    --secondary-font: "Bodoni Moda", serif;
+    --secondary-color: rgba(255, 255, 255, 0.5);
+    --quote-size: 8vw;
+    --author-size: 1vw;
+    --cursor-size: 16px;
+    --ghost-color: #000000;
+    --eye-glow-color: #ffff00;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: auto;
+    background-color: #111;
+    letter-spacing: -0.03em;
+    position: relative;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    min-height: calc(100vh - 130px);
+    width: 100%; /* S'assurer que le contenu occupe toute la largeur */
+    margin: auto; /* Centrage horizontal */
+    z-index: 20;
+    padding: 20px;
+}
+.quote-container {
+    max-width: 90%;
+    overflow: hidden;
+}
+.quote {
+    font-family: var(--primary-font);
+    font-size: 10vw;
+    line-height: 1.3;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 5vh;
+    opacity: 1;
+    text-transform: uppercase;
+}
+.author {
+    font-family: var(--text-color);
+    font-size: var(--author-size);
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+.caption {
+    font-family: 6vw;
+    font-size: var(--author-size);
+    margin-bottom: 2vh;
+}
+
+/* ========== BUTTON ========== */
+
+/* Defs */
+@property --angle-1 {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: -75deg;
+}
+
+@property --angle-2 {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: -45deg;
+}
+
+:root {
+    --global--size: clamp(2rem, 4vw, 5rem);
+    --anim--hover-time: 400ms;
+    --anim--hover-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Button Wrap Container */
+
+.button-wrap a {
+    text-decoration: none;
+}
+
+.button-wrap {
+    position: relative;
+    z-index: 2;
+    border-radius: 999vw;
+    background: transparent;
+    pointer-events: none;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    margin-top: 100px;
+}
+
+/* ========== BUTTON BASE STYLES ========== */
+
+button {
+    /* Basic Styling */
+    --border-width: clamp(1px, 0.0625em, 4px);
+    all: unset;
+    cursor: pointer;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    pointer-events: auto;
+    z-index: 3;
+    /* Mise à jour ici pour utiliser les variables CSS pour le fond */
+    background: linear-gradient(
+        -75deg,
+        var(--button-gradient-start),
+        var(--button-gradient-middle),
+        var(--button-gradient-end)
+    );
+    border-radius: 999vw;
+    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+        inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+        0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+        0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
+        0 0 0 0 rgba(255, 255, 255, 1);
+    backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+    -webkit-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+    -moz-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+    -ms-backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
+}
+
+button:hover {
+    transform: scale(0.975);
+    backdrop-filter: blur(0.01em);
+    -webkit-backdrop-filter: blur(0.01em);
+    -moz-backdrop-filter: blur(0.01em);
+    -ms-backdrop-filter: blur(0.01em);
+    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+        inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+        0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+        0 0 0.05em 0.1em inset rgba(255, 255, 255, 0.5),
+        0 0 0 0 rgba(255, 255, 255, 1);
+}
+
+/* Button Text */
+button span {
+    position: relative;
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    font-size: 1em;
+    color: var(--text-color); /* Utilise la couleur de texte du thème */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1); /* Default shadow (dark in light mode) */
+    transition: all var(--anim--hover-time) var(--anim--hover-ease);
+    padding-inline: 1.5em;
+    padding-block: 0.875em;
+}
+
+/* Specific text shadow for dark mode */
+[data-theme="dark"] button span {
+    text-shadow: 0em 0.25em 0.05em rgba(255, 255, 255, 0.1); /* White shadow for dark mode */
+}
+
+button:hover span {
+    text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
+}
+
+/* Fix: Text shadow when button is active in dark mode */
+[data-theme="dark"] button:active span {
+    text-shadow: 0.025em 0.25em 0.05em rgba(255, 255, 255, 0.12); /* White shadow when active in dark mode */
+}
+
+/* Text - Modification here to remove the luminous reflection */
+button span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: calc(100% - var(--border-width));
+    height: calc(100% - var(--border-width));
+    top: calc(0% + var(--border-width) / 2);
+    left: calc(0% + var(--border-width) / 2);
+    box-sizing: border-box;
+    border-radius: 999vw;
+    overflow: clip;
+    background: none; /* Removed the linear-gradient for the reflection */
+}
+
+button:hover span::after {
+    background: none; /* Ensure no reflection on hover */
+}
+
+button:active span::after {
+    background: none; /* Ensure no reflection on active */
+}
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    button span::after,
+    button:active span::after {
+        background: none; /* Ensure no reflection on touch devices */
+    }
+}
+
+/* ========== BUTTON OUTLINE ========== */
+
+/* Outline */
+button::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    border-radius: 999vw;
+    width: calc(100% + var(--border-width));
+    height: calc(100% + var(--border-width));
+    top: calc(0% - var(--border-width) / 2);
+    left: calc(0% - var(--border-width) / 2);
+    padding: var(--border-width);
+    box-sizing: border-box;
+    background: conic-gradient(
+        from var(--angle-1) at 50% 50%,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0) 5% 40%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 60% 95%,
+        rgba(0, 0, 0, 0.5)
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: all var(--anim--hover-time) var(--anim--hover-ease),
+        --angle-1 500ms ease;
+    box-shadow: inset 0 0 0 calc(var(--border-width) / 2) rgba(255, 255, 255, 0.5);
+}
+
+button:hover::after {
+    --angle-1: -125deg;
+}
+
+button:active::after {
+    --angle-1: -75deg;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    button::after,
+    button:hover::after,
+    button:active::after {
+        --angle-1: -75deg;
+    }
+}
+
+/* Shadow Hover */
+.button-wrap:has(button:hover) .button-shadow {
+    filter: blur(clamp(2px, 0.0625em, 6px));
+    -webkit-filter: blur(clamp(2px, 0.0625em, 6px));
+    -moz-filter: blur(clamp(2px, 0.0625em, 6px));
+    -ms-filter: blur(clamp(2px, 0.0625em, 6px));
+    transition: filter var(--anim--hover-time) var(--anim--hover-ease);
+}
+
+.button-wrap:has(button:hover) .button-shadow::after {
+    top: calc(var(--shadow-cuttoff-fix) - 0.875em);
+    opacity: 1;
+}
+
+/* Rotation */
+.button-wrap:has(button:active) {
+    transform: rotate3d(1, 0, 0, 25deg);
+}
+
+.button-wrap:has(button:active) button {
+    box-shadow: inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+        inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+        0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+        0 0 0.1em 0.25em inset rgba(255, 255, 255, 0.2),
+        0 0.225em 0.05em 0 rgba(0, 0, 0, 0.05),
+        0 0.25em 0 0 rgba(255, 255, 255, 0.75),
+        inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15);
+}
+
+.button-wrap:has(button:active) .button-shadow {
+    filter: blur(clamp(2px, 0.125em, 12px));
+    -webkit-filter: blur(clamp(2px, 0.125em, 12px));
+    -moz-filter: blur(clamp(2px, 0.125em, 12px));
+    -ms-filter: blur(clamp(2px, 0.125em, 12px));
+}
+
+.button-wrap:has(button:active) .button-shadow::after {
+    top: calc(var(--shadow-cuttoff-fix) - 0.5em);
+    opacity: 0.75;
+}
+
+/* Note: This rule is overridden by the more specific [data-theme="dark"] button:active span */
+/* If you want a consistent black shadow on active in light mode, you'd keep this */
+/* If you want it to be overridden in dark mode, the new rule above handles it. */
+.button-wrap:has(button:active) span {
+    text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
+}
+
+/* AJOUTS POUR LA VERSION MOBILE */
+@media (max-width: 768px) {
+    .quote {
+        font-size: 13vw; /* Augmentation pour mobile */
+        margin-bottom: 2vh;
+    }
+    
+    .caption, .author {
+        font-size: 12px; /* Augmentation pour mobile */
+    }
+
+    .button-wrap {
+        margin-top: 80px; /* Ajustement de l'espacement sur mobile */
+    }
+}
